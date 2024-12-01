@@ -1,24 +1,24 @@
 import logo from './logo.svg';
+import {Header, UserBlock} from "./components";
 import './App.css';
+import styles from './app.module.css'
 
+const getUserFromServer = () => ({
+    id:'11100',
+    name:'Ivan',
+    age:23,
+    email:'example@mail.ru',
+    phone:'+79777142246'
+})
+
+const {name, age, email, phone} = getUserFromServer()
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className={styles.app}>
+      <Header name={name}/>
+      <hr/>
+       <UserBlock name={name} age={age} email={email} phone={phone}/>
+      </div>
   );
 }
 
